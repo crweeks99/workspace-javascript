@@ -95,7 +95,10 @@
             <h1>Window and document object </h1>
             <p> Try alert, open, location, url </p>
             <script>
-
+                document.write(window.location.href);
+                //window.location.href="https://www.usca.edu/"
+                //window.alert("warning");
+                document.write(document.lastModified)
             </script>
 
         </div>
@@ -111,11 +114,23 @@
 
         <div class="practice">
             <h1> Get innerHTML of an elemnt</h1>
-            <p id="p1"> Paragraph Number One </p>
-            <p id="p2"> Paragraph Number two </p>
+            <p id="p1" onclick="changeit();"> Paragraph Number One </p>
+            <p id="p2" onmouseover="changed();" onmouseout="changeback();"> Paragraph Number two </p>
             <p id="p3"> Paragraph Number three </p>
             <p>Please write JavaScript code to change the content of each paragraph.​
             <p>
+                <script>
+                    //event handler
+                    function changeit() {
+                        document.getElementById('p1').textContent="I did it";
+                    }
+                    function changed() {
+                        document.getElementById('p2').textContent="woah";
+                    }
+                    function changeback() {
+                        document.getElementById('p2').textContent="Paragraph Number two";
+                    }
+                </script>
 
 
         </div>
@@ -125,6 +140,13 @@
             <p> Please enter your numbers </p>
             <script>
                 function calculate() {
+                    var n1 = parseInt(document.getElementsByName('num1')[0].value);
+                    var n2 = parseInt(document.getElementsByName('num2')[0].value);
+                    //debugging
+                    console.log("n1="+n1);
+                    //output
+                    var ans = n1 + n2;
+                    document.getElementById('result').textContent = "The answer is "+ans;
 
 
                 }
@@ -155,6 +177,19 @@
                     </label>
                 </p>
             </form>
+            <script>
+                //event handler
+                function welcomemessage() {
+                    window.alert("Works!!!");
+                }
+                //event -> event handler
+                var fE = document.getElementById('cName'); //input text box
+                fE.addEventListener('blur', welcomemessage, false);
+
+
+
+
+            </script>
 
         </div>
 
