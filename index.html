@@ -45,7 +45,7 @@
                 var num4 = "123";
                 var result = num1 + num2;
 
-                document.write("result is "+ result);
+                document.write("result is " + result);
 
             </script>
 
@@ -64,20 +64,20 @@
                 //document.write("<img src=\"img/die5.png\" alt=\dies\">")
                 //document.write("<img src=\"img/die6.png\" alt=\dies\">")
                 imglist = " ";
-                for(var i=1; i<7; i++) {
-                    imglist = imglist + "<img src=\"img/die"+i+".png\">";
+                for (var i = 1; i < 7; i++) {
+                    imglist = imglist + "<img src=\"img/die" + i + ".png\">";
                 }
                 document.write(imglist);
             </script>
 
             <p> Write a table to the page </p>
-                <script>
-                    var tablecode="<table>";
-                        for(var i = 1; i<10; i++) {
-                            tablecode = tablecode + "<tr><td>"+i+"</td></tr>";
-                        }
-                        tablecode = tablecode + "</table>"
-                        document.write(tablecode);
+            <script>
+                var tablecode = "<table>";
+                for (var i = 1; i < 10; i++) {
+                    tablecode = tablecode + "<tr><td>" + i + "</td></tr>";
+                }
+                tablecode = tablecode + "</table>"
+                document.write(tablecode);
 
 
 
@@ -87,7 +87,7 @@
 
 
 
-                </script>
+            </script>
 
         </div>
 
@@ -122,13 +122,13 @@
                 <script>
                     //event handler
                     function changeit() {
-                        document.getElementById('p1').textContent="I did it";
+                        document.getElementById('p1').textContent = "I did it";
                     }
                     function changed() {
-                        document.getElementById('p2').textContent="woah";
+                        document.getElementById('p2').textContent = "woah";
                     }
                     function changeback() {
-                        document.getElementById('p2').textContent="Paragraph Number two";
+                        document.getElementById('p2').textContent = "Paragraph Number two";
                     }
                 </script>
 
@@ -143,10 +143,10 @@
                     var n1 = parseInt(document.getElementsByName('num1')[0].value);
                     var n2 = parseInt(document.getElementsByName('num2')[0].value);
                     //debugging
-                    console.log("n1="+n1);
+                    console.log("n1=" + n1);
                     //output
                     var ans = n1 + n2;
-                    document.getElementById('result').textContent = "The answer is "+ans;
+                    document.getElementById('result').textContent = "The answer is " + ans;
 
 
                 }
@@ -180,15 +180,13 @@
             <script>
                 //event handler
                 function welcomemessage() {
-                    window.alert("Works!!!");
+                    var name = document.getElementById('cName').value;
+                    document.getElementById('message').innerHTML = "Welcome <b>" + name + "</b>!";
+                    //window.alert("Works!!!");
                 }
                 //event -> event handler
                 var fE = document.getElementById('cName'); //input text box
                 fE.addEventListener('blur', welcomemessage, false);
-
-
-
-
             </script>
 
         </div>
@@ -197,8 +195,16 @@
             <h1> Practice - Calculate Square</h1>
             Calculating Square:
             <input type="text" id="num" placeholder="Type in a number"> <sup> 2 </sup> =
-            <label id="result"> ? </label>
-
+            <label id="result1"> ? </label>
+            <script>
+                function blurnumber() {
+                    var num = parseInt(document.getElementById('num').value);
+                    var n = num*num;
+                    document.getElementById('result1').textContent=n.toString();
+                }
+                var fE = document.getElementById('num'); //input text box
+                fE.addEventListener('blur', blurnumber, false);
+            </script>
         </div>
 
         <div class="practice">
