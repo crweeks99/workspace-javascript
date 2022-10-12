@@ -199,6 +199,9 @@
             <script>
                 function blurnumber() {
                     var num = parseInt(document.getElementById('num').value);
+                    if (Number.isNaN(Number.parseFloat(n))){
+                        window.alert("Try it again, you should enter a number");
+                    }
                     var n = num*num;
                     document.getElementById('result1').textContent=n.toString();
                 }
@@ -217,9 +220,19 @@
 
             <input type="button" id="tryit" value="Click and Display">
 
-            <div id="message">
+            <div id="message1">
             </div>
+            <script>
+                //event handler
+                function tohtml() {
+                    var code = document.getElementById('code').value;
+                    document.getElementById('message1').innerHTML = code;
+                }
 
+                //event
+                var bE = document.getElementById('tryit');
+                bE.addEventListener('click', tohtml, false);
+            </script>
 
         </div>
 
