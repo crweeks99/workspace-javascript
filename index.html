@@ -199,11 +199,11 @@
             <script>
                 function blurnumber() {
                     var num = parseInt(document.getElementById('num').value);
-                    if (Number.isNaN(Number.parseFloat(n))){
+                    if (Number.isNaN(Number.parseFloat(n))) {
                         window.alert("Try it again, you should enter a number");
                     }
-                    var n = num*num;
-                    document.getElementById('result1').textContent=n.toString();
+                    var n = num * num;
+                    document.getElementById('result1').textContent = n.toString();
                 }
                 var fE = document.getElementById('num'); //input text box
                 fE.addEventListener('blur', blurnumber, false);
@@ -261,17 +261,17 @@
                     var yearCar = document.getElementById('year').value;
                     var condCar = document.getElementById('condition').value;
                     var price = 0;
-                    if (yearCar == "2003" && condCar == "Good"){
+                    if (yearCar == "2003" && condCar == "Good") {
                         price = 4500;
                     }
-                    else if (yearCar == "2003" && condCar == "Fair"){
+                    else if (yearCar == "2003" && condCar == "Fair") {
                         price = 3000;
-                    }else if (yearCar == "2004" && condCar == "Fair"){
+                    } else if (yearCar == "2004" && condCar == "Fair") {
                         price = 4000;
-                    }else if (yearCar == "2004" && condCar == "Good"){
+                    } else if (yearCar == "2004" && condCar == "Good") {
                         price = 5500;
                     }
-                    document.getElementById('price').textContent=price.toString();
+                    document.getElementById('price').textContent = price.toString();
                 }
                 document.getElementById('year').addEventListener('change', getprice, false);
                 document.querySelector('#condition').addEventListener('change', getprice, false);
@@ -307,7 +307,7 @@
                     //old way
                     //document.body.style.backgroundColor = bcolor;
                     //new way
-                    document.body.setAttribute('style', "background-color:"+bcolor);
+                    document.body.setAttribute('style', "background-color:" + bcolor);
                 }
                 document.querySelector('#theme').addEventListener('blur', changetheme, false);
 
@@ -337,7 +337,7 @@
             <p>
                 <input type="button" value="Check Premium">
             </p>
-            <p id="result">
+            <p id="result2">
 
             </p>
             <script>
@@ -345,6 +345,32 @@
                     var rE = document.querySelector('input[name = "coverage"]:checked');
                     var coverage = parseInt(rE.value);
                     console.log(coverage);
+                    var index = document.getElementById("agegroup").selectedIndex;
+                    let agefactor = 0;
+                    switch (index) {
+                        case 0:
+                            agefactor = 0.08;
+                            break;
+                        case 1:
+                            agefactor = 0.09;
+                            break;
+                        case 2:
+                            agefactor = 0.11;
+                            break;
+                        default:
+                            agefactor = 0.17;
+                            break;
+                    }
+                    let base = 10;
+                    premium = base + agefactor * coverage / 1000;
+                    //display it
+                    if (index = 0) {
+                        this.animate([{ transform: 'scale(0.2)' }, { transform: 'scale(1.5)' }], { duration: 2000, fill: "forwards" });
+                    } else {
+                        this.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(100px,0)'}], { duration: 2000, fill: "forwards" });
+                    }
+                    document.getElementById("result2").textContent = premium;
+
                 }
 
                 var bE = document.querySelector('input[value="Check Premium"]');
@@ -362,6 +388,18 @@
             <p>
                 <input type="button" value="Click for Square">
             </p>
+            <script>
+                function dosum() {
+                    var sum = 0;
+                    var N = parseInt(document.getElementById("inputnumber1").value)
+                    for (var i = 1; i < N + 1; i++) {
+                        sum = N * N;
+
+                    }
+                }
+                document.querySelector("#dosquare").addEventListener("click", dosum, false);
+
+            </script>
 
         </div>
 
