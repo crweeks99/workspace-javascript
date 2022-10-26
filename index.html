@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main-old.css">
     <!-- Jquery library   ---->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -394,11 +394,9 @@
                     var N = parseInt(document.getElementById("inputnumber1").value)
                     for (var i = 1; i < N + 1; i++) {
                         sum = N * N;
-
                     }
                 }
                 document.querySelector("#dosquare").addEventListener("click", dosum, false);
-
             </script>
 
         </div>
@@ -486,9 +484,21 @@
                 </tr>
             </table>
             <script>
-                function changeimage(){
-                    var num = Math.floor(Math.random()*6+1);
-                    document.getElementById('dice').setAttribute('src',"img/die"+num+".png");
+                var stats = [0, 0, 0, 0, 0, 0];
+                function changeimage() {
+                    var num = Math.floor(Math.random() * 6 + 1);
+                    stats[num - 1]++;
+                    document.getElementById('dice').setAttribute('src', "img/die" + num + ".png");
+                    for (var i in stats) {
+                        console.log(stats[i]);
+                    }
+                    document.getElementById('r1').textContent = stats[0].toString();
+                    document.getElementById('r2').textContent = stats[1].toString();
+                    document.getElementById('r3').textContent = stats[2].toString();
+                    document.getElementById('r4').textContent = stats[3].toString();
+                    document.getElementById('r5').textContent = stats[4].toString();
+                    document.getElementById('r6').textContent = stats[5].toString();
+
                 }
                 document.getElementById('roll').addEventListener('click', changeimage, false);
             </script>
@@ -514,7 +524,19 @@
                 <img src="img/usca5.jpg" alt="usca">
             </div>
             <script>
+                //automativally event
+                //setInterval(changepic, 5000);
+                var index = 0;
+                var imglist = document.querySelectorAll(".img-container-hide");
+                //imglist[0].setAttribute('class', "img-container")
 
+                //event handler
+                function changepic() {
+                    imglist[index].setAttribute("class", "img-container-hide");
+                    index++;
+                    index = index %imglist.length;
+                    imglist[index].setAttribute('class', "img-container");
+                }
             </script>
 
 
@@ -567,9 +589,10 @@
 
 
     </div>
+    <!--
     <script src="script.js"> </script>
     <script src="js/practice.js"></script>
-
+    -->
 
 </body>
 
